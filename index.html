@@ -1,0 +1,333 @@
+<html>
+  <head>
+    <style>
+      .simple-savings-calculator {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .simple-savings-input-container {
+        min-width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        background-color: #e8e8e8;
+        padding: 1em;
+        border-radius: 4px;
+      }
+
+      .simple-savings-input-field {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px 20px;
+      }
+
+      .simple-savings-input-label {
+        font-weight: bold;
+        font-size: 14px;
+        margin-right: auto;
+      }
+
+      .simple-savings-input {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: start;
+      }
+
+      .simple-savings-units {
+        margin: 0px 4px;
+      }
+
+      .simple-savings-input input {
+        border: solid black 1px;
+        border-radius: 4px;
+        margin: 0px;
+      }
+
+      .simple-savings-input input:focus {
+        border: solid #0e934b 1px;
+      }
+
+      #simple-savings_calculate {
+        background-color: #0e934b;
+        border-radius: 5px;
+        width: 200px;
+        color: #ffffff;
+      }
+
+      .simple-savings-output-container {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        align-content: space-between;
+        padding: 2em;
+      }
+
+      .simple-savings-output-title {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .simple-savings-output-field {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: space-between;
+        justify-content: space-evenly;
+        padding: 8px 20px;
+        border-bottom: 1px solid #a3a3a3;
+      }
+
+      .simple-savings-output-label {
+        font-size: 16px;
+        padding: 4px 16px;
+      }
+
+      .simple-savings-output-value {
+        padding: 4px 8px;
+      }
+
+      .simple-savings-units-output {
+        margin-left: auto;
+      }
+
+      .simple-savings-total-savings {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        align-content: space-between;
+        justify-content: space-evenly;
+        padding: 8px 20px;
+      }
+
+      .simple-savings-total-label {
+        font-size: 22px;
+        font-weight: bold;
+        padding: 4px 16px;
+      }
+
+      .simple-savings-total-value {
+        font-size: 24px;
+        font-weight: bold;
+        padding: 4px 4px;
+        color: #0e934b;
+      }
+
+      .simple-savings-total-units {
+        font-size: 24px;
+        font-weight: bold;
+        margin-left: auto;
+        color: #0e934b;
+      }
+
+      @media screen and (max-width: 990px) {
+        .simple-savings-calculator {
+          flex-wrap: wrap;
+        }
+        .simple-savings-input-container {
+          flex-basis: 100%;
+        }
+        .simple-savings-output-container {
+          flex-basis: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="section">
+      <h2 class="title align_left">Simple Savings Calculator</h2>
+      <div class="richtext_content--featured_text align_left">
+        <p>
+          Try The Homeboys free savings calculator to estimate your investment
+          growth. The Homeboys are on your side and want to aid you in your
+          financial journey. Start setting goals now to achieve your dreams in
+          the future.
+        </p>
+      </div>
+      <div class="simple-savings-calculator">
+        <div class="simple-savings-input-container">
+          <div class="simple-savings-input-field">
+            <div class="simple-savings-input-label">Initial Deposit:</div>
+            <div class="simple-savings-input">
+              <div class="simple-savings-units">$</div>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                id="simple-savings_initial-deposit-input"
+                value="10000"
+              />
+            </div>
+          </div>
+          <div class="simple-savings-input-field">
+            <div class="simple-savings-input-label">Monthly contribution</div>
+            <div class="simple-savings-input">
+              <div class="simple-savings-units">$</div>
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                id="simple-savings_contribution"
+                value="200"
+              />
+            </div>
+          </div>
+          <div class="simple-savings-input-field">
+            <div class="simple-savings-input-label">Over a period of</div>
+            <div class="simple-savings-input">
+              <input
+                type="number"
+                min="0"
+                step="1"
+                id="simple-savings_years"
+                value="20"
+              />
+              <div class="simple-savings-units">years</div>
+            </div>
+          </div>
+          <div class="simple-savings-input-field">
+            <div class="simple-savings-input-label">APY</div>
+            <div class="simple-savings-input">
+              <input
+                type="number"
+                step="0.01"
+                min="0"
+                id="simple-savings_apy"
+                value="7.00"
+              />
+              <div class="simple-savings-units">%</div>
+            </div>
+          </div>
+        </div>
+        <div class="simple-savings-output-container">
+          <div class="simple-savings-output-title">Total Savings Breakdown</div>
+          <div class="simple-savings-output-field">
+            <div class="simple-savings-output-label">Initial Deposit</div>
+            <div class="simple-savings-units-output">+$</div>
+            <div
+              class="simple-savings-output-value"
+              id="simple-savings_initial-deposit-output"
+            ></div>
+          </div>
+          <div class="simple-savings-output-field">
+            <div class="simple-savings-output-label">Total contributions</div>
+            <div class="simple-savings-units-output">+$</div>
+            <div
+              class="simple-savings-output-value"
+              id="simple-savings_total-contribution"
+            ></div>
+          </div>
+          <div class="simple-savings-output-field">
+            <div class="simple-savings-output-label">Interest Earned</div>
+            <div class="simple-savings-units-output">+$</div>
+            <div
+              class="simple-savings-output-value"
+              id="simple-savings_interest-earned"
+            ></div>
+          </div>
+          <div class="simple-savings-total-savings">
+            <div class="simple-savings-total-label">Total Savings</div>
+            <div class="simple-savings-total-units">$</div>
+            <div
+              class="simple-savings-total-value"
+              id="simple-savings_total-savings"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    const getElementByIdConvertToNumber = (id) => {
+      return Number(document.getElementById(id).value);
+    };
+    const calculateTotalSavings = (
+      deposit,
+      contribution,
+      apy,
+      years,
+      n = 12
+    ) => {
+      console.log(apy, apy < 0.001);
+      if (apy < 0.001) {
+        return deposit + contribution * years * n;
+      }
+      const futureValueAnuity =
+        (contribution * ((1 + apy / n) ** (years * n) - 1)) / (apy / n);
+      const futureValueDeposit = deposit * (1 + apy / n) ** (years * n);
+      return futureValueAnuity + futureValueDeposit;
+    };
+
+    const formatNumber = (n) => {
+      return Number(n).toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    };
+
+    const calculateSavings = () => {
+      const periods = 12;
+      const initialDeposit = getElementByIdConvertToNumber(
+        "simple-savings_initial-deposit-input"
+      );
+      const years = getElementByIdConvertToNumber("simple-savings_years");
+      const contribution = getElementByIdConvertToNumber(
+        "simple-savings_contribution"
+      );
+      const apy = getElementByIdConvertToNumber("simple-savings_apy") / 100;
+
+      const totalDeposits = contribution * periods * years;
+      const totalSavings = calculateTotalSavings(
+        initialDeposit,
+        contribution,
+        apy,
+        years,
+        periods
+      );
+      const interestEarned = totalSavings - totalDeposits + initialDeposit;
+
+      const totalContribution = document.getElementById(
+        "simple-savings_total-contribution"
+      );
+      totalContribution.innerHTML = formatNumber(totalDeposits);
+
+      const initialDepositOutput = document.getElementById(
+        "simple-savings_initial-deposit-output"
+      );
+      initialDepositOutput.innerHTML = formatNumber(initialDeposit);
+
+      const interestEarnedOutput = document.getElementById(
+        "simple-savings_interest-earned"
+      );
+      interestEarnedOutput.innerHTML = formatNumber(interestEarned);
+
+      const totalSavingsOutput = document.getElementById(
+        "simple-savings_total-savings"
+      );
+      totalSavingsOutput.innerHTML = formatNumber(totalSavings);
+    };
+
+    document
+      .getElementById("simple-savings_initial-deposit-input")
+      .addEventListener("input", calculateSavings);
+    document
+      .getElementById("simple-savings_years")
+      .addEventListener("input", calculateSavings);
+    document
+      .getElementById("simple-savings_contribution")
+      .addEventListener("input", calculateSavings);
+    document
+      .getElementById("simple-savings_apy")
+      .addEventListener("input", calculateSavings);
+    window.onload = calculateSavings();
+  </script>
+</html>
